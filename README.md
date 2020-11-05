@@ -1,6 +1,14 @@
 # Operating-System
  操作系统课程设计
 
+## 运行方法
+系统：MacOS
+```
+cd SourceCode
+sh run.sh
+```
+
+
 ## 注意事项
 
 1. 每次提交要写明增加的功能 以及对应的负责人
