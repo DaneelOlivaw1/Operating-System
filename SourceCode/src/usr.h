@@ -1,5 +1,6 @@
 #include <iostream>
 #include "OS.h"
+#pragma once
 using namespace std;
 class usr
 {
