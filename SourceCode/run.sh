@@ -8,5 +8,6 @@ if [ -f "a" ];then
 fi
 f=$(ls)
 echo $(g++ $f -o a)
+echo $(rm *.o)
 echo "运行结果："
 echo $(./a)
