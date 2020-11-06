@@ -2,7 +2,7 @@
  操作系统课程设计
 
 ## 运行方法
-系统：MacOS
+系统：MacOS/Ubuntu
 ```
 cd SourceCode
 sh run.sh
