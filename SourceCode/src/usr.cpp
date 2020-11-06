@@ -7,7 +7,7 @@ usr::usr(string name)
     usr_name = name;
 }
 
-bool usr::Write(OS &os){
+int usr::Write(OS &os){
     // 在操作系统内存中写入程序
     // 程序长度为length为20～50
     // 占用时间为10～30
@@ -18,7 +18,7 @@ bool usr::Write(OS &os){
         GetRandomNum(1,11) <= 3 ? os.Source[os.p] = 1 : os.Source[os.p] = 0;
         os.p++;
     }
-    return true;
+    return length;
 }
 
 int usr::GetRandomNum(int l, int r){

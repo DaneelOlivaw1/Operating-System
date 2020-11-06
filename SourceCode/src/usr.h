@@ -8,7 +8,7 @@ public:
     string usr_name;
 public:
     usr(string name);
-    bool Write(OS &os);
+    int Write(OS &os);  //生成代码块, os: 所属操作系统
     int GetRandomNum(int l, int r);
     ~usr();
 };
