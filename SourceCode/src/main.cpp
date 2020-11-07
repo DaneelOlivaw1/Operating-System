@@ -12,6 +12,7 @@ int main(){
     //     cout<<u.GetRandomNum(10, 15)<<endl;
     // }
     // init();
+    
     OS os;
     usr root("root");
     for (int i = 0;i < 10; i++){
