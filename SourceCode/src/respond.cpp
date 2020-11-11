@@ -1,6 +1,7 @@
 #include"respond.h"
 #include<vector>
 #include"process.h"
+using namespace std;
 respond::respond(){
 
 }
@@ -8,18 +9,18 @@ respond::~respond(){
 
 }
 void respond::FeedIn(OS os){
-    std::sort(PCB.begin(), PCB.end(), CmpByComeTime);		//按到达时间排序
+    sort(PCB.begin(), PCB.end(), CmpByComeTime);		//按到达时间排序
  
 	//同时到达的按优先级降序排序，决定首先运行的作业
 	int i = 1;
-	std::vector<process>::iterator it = PCB.begin() + 1;
+	vector<process>::iterator it = PCB.begin() + 1;
 	while ((*it).arrivetime == (*(it - 1)).arrivetime)
 	{
 		++i;
 		++it;
 	}
 	CalPriority(PCB.begin(), PCB.begin() + i, 0);		//计算优先级
-	std::sort(PCB.begin(), PCB.begin() + i, CmpByLevel);
+	sort(PCB.begin(), PCB.begin() + i, CmpByLevel);
  
 	int FinishTime = -1;
 	for (it = PCB.begin(); it < PCB.end(); ++it)
@@ -39,12 +40,12 @@ void respond::FeedIn(OS os){
 		while ((it + i) < PCB.end() && (*(it + i)).arrivetime <= FinishTime)
 			++i;
 		CalPriority(it + 1, it + i, FinishTime);
-		std::sort(it + 1, it + i, CmpByLevel);
+		sort(it + 1, it + i, CmpByLevel);
 	}
  
-	//std::sort(PCB.begin(), PCB.end(), CmpByComeTime);		//重新排列，用于显示结果
+	//sort(PCB.begin(), PCB.end(), CmpByComeTime);		//重新排列，用于显示结果
 }
-void respond::CalPriority(std::vector<process>::iterator b, std::vector<process>::iterator e, int CurTime){
+void respond::CalPriority(vector<process>::iterator b, vector<process>::iterator e, int CurTime){
     while (b < e)
 	{
 		(*b).level = 1+(double)(CurTime - (*b).arrivetime) / (*b).ServerTime ;
