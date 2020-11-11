@@ -19,7 +19,7 @@ process::~process()
 {
 }
 
-bool process::operator<(const process& rhs)
+/*bool process::operator<(const process& rhs)
 {
     // 重载小于号 比较到达时间
     if (this->arrivetime < rhs.arrivetime){
@@ -28,4 +28,4 @@ bool process::operator<(const process& rhs)
     else {
         return false;
     }
-}
+}*/

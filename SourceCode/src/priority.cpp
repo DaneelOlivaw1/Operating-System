@@ -1,5 +1,11 @@
 #include"priority.h"
 #include "stdio.h"
+priority::priority(){
+
+};
+priority::~priority(){
+    
+}
 void priority::FeedIn(OS os){            //指向当前优先级最高进程的指针，level越小优先级越大
     int size = os.Ready_q.size();
     for(int i = 0; i < size;i++)
@@ -10,6 +16,7 @@ void priority::FeedIn(OS os){            //指向当前优先级最高进程的�
     }
 
 }
+
 // void priority::print(){
 //     while(Ready.size() != NULL)
 //     {
