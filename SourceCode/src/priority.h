@@ -1,6 +1,7 @@
 #include <iostream>
 #include"process.h"
 #include"OS.h"
+#include<vector>
 using namespace std;
 #pragma once
 
@@ -17,7 +18,8 @@ class priority
 
 
     public:
-    priority_queue<process> Ready;          //优先队列，安优先数拍
-
+    vector<process> Ready;          //优先队列，安优先数拍
+    bool ComArrivetime(const process &p1, const process &p2);
+    bool ComLevel(const process &p1, const process &p2);
 
 };

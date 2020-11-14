@@ -22,24 +22,24 @@ void respond::FeedIn(OS os){
 	CalPriority(PCB.begin(), PCB.begin() + i, 0);		//计算优先级
 	sort(PCB.begin(), PCB.begin() + i, CmpByLevel);
  
-	int FinishTime = -1;
+	int CpuTime = -1;
 	for (it = PCB.begin(); it < PCB.end(); ++it)
 	{
-		if ((*it).arrivetime >= FinishTime)		//没有作业正在运行，取队首作业运行
+		if ((*it).arrivetime >= CpuTime)		//没有作业正在运行，取队首作业运行
 			(*it).FinishTime = (*it).arrivetime + (*it).ServerTime;
 		else									//有作业正在运行，等待作业完毕，此作业再运行
-			(*it).FinishTime = FinishTime + (*it).ServerTime;
+			(*it).FinishTime = CpuTime + (*it).ServerTime;
 
 
 		(*it).TurnTime = (*it).FinishTime - (*it).arrivetime;
 		(*it).DaiquanTime = (double)(*it).TurnTime / (*it).ServerTime;
-		FinishTime = (*it).FinishTime;
+		CpuTime = (*it).FinishTime;
  
 		//在一个作业运行期间，如果有其他作业到达，将他们按照优先级降序排列
 		i = 1;
-		while ((it + i) < PCB.end() && (*(it + i)).arrivetime <= FinishTime)
+		while ((it + i) != PCB.end() && (*(it + i)).arrivetime <= CpuTime)
 			++i;
-		CalPriority(it + 1, it + i, FinishTime);
+		CalPriority(it + 1, it + i, CpuTime);
 		sort(it + 1, it + i, CmpByLevel);
 	}
  

@@ -25,5 +25,5 @@ public:
 public:
     process(int start, int length, string user); //start: 开始地址, length: 代码块长度, user: 用户名
     ~process();
-    //bool operator<(const process& rhs);
+    
 };
